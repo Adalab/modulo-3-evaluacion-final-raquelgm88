@@ -22,9 +22,9 @@ function App() {
       return eachCharacter.name.toLowerCase().includes(search.toLowerCase());
     }).map ((eachCharacter, index) => {
       return <li key={index} id={eachCharacter.id} className="li">
-        <img src={eachCharacter.image} alt="" />
-        <div>{eachCharacter.name}</div>
-        <div>{eachCharacter.species}</div>
+        <img src={eachCharacter.image} alt="" className='li__img'/>
+        <div className='li__name'>{eachCharacter.name}</div>
+        <div className='li__specie'>{eachCharacter.species}</div>
       </li>
     })
   };
@@ -51,7 +51,7 @@ function App() {
           <option value="slytherin">Slytherin</option>
         </select>
       </form>
-      <ul>{renderList()}</ul>
+      <ul className='ul'>{renderList()}</ul>
     </main>
 
   </>;
