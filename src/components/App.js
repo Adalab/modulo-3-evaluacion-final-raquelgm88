@@ -1,53 +1,57 @@
 import { useEffect, useState } from 'react';
 import callToApi from '../services/api';
-import {Link, Route, Routes} from 'react-router-dom';
+import ls from '../services/localStorage';
 import '../styles/App.scss';
-import Header from './Header';
 
 function App() {
 
-  const [data, setData] = useState([]);
-  const [house, setHouse] = useState('');
+  //LOCALSTORAGE
   
+  // Estados
 
+  // En vez de leer la propiedad name leemos la propiedad data y su valor por defecto es un objeto vacío: ls.get('data', {})
+  // Del objeto (vacío o relleno que nos devuelve ls.get) obtenemos la propiedad name: ls.get('data', {}).name
+  // Si la propiedad name existe la usamos, si no, usamos un string vacío: ls.get('data', {}).name || ''
+  const [name, setName] = useState(ls.get('data', {}).name || '');
+  // Lo mismo para el email
+  const [email, setEmail] = useState(ls.get('data', {}).email || '');
+
+  // useEffect
+
+  // Usamos useEffect para guardar los datos en el local storage
   useEffect(() => {
-    callToApi().then((response) => {
-      setData(response);
+    // En vez de guardar el nombre por un lado y el email por otro
+    // Guardamos en el local storage un objeto data con las propiedad name y email: { name: 'loquesea', email: 'loquefuere' }
+    ls.set('data', {
+      name: name,
+      email: email,
     });
-  }, []);
+  }, [name, email]);
 
-  const renderList = () => {
-    return data.map ((eachCharacter, index) => {
-      return <li key={index} id={eachCharacter.id} className="li">
-        <img src={eachCharacter.image} alt="" />
-        <div>{eachCharacter.name}</div>
-        <div>{eachCharacter.species}</div>
-      </li>
-    })
+  // Eventos
+
+  const handleName = (ev) => {
+    setName(ev.target.value);
   };
 
-  const handleHouse = (event) => {
-    setHouse(event.target.value);
-  }
+  const handleEmail = (ev) => {
+    setEmail(ev.target.value);
+  };
 
-  return <>
-    <Header/>
-    <main>
-      <form>
-        <label htmlFor="search">Busca por personaje: </label>
-        <input type="search" name="search" autoComplete='off' />
-        <label htmlFor="house">Selecciona la casa: </label>
-        <select name="house" id="house" onChange={handleHouse}>
-          <option value="gryffindor">Gryffindor</option>
-          <option value="ravenclaw">Ravenclaw</option>
-          <option value="hufflepuff">Hufflepuff</option>
-          <option value="slytherin">Slytherin</option>
-        </select>
-      </form>
-      <ul>{renderList()}</ul>
-    </main>
+  //LLAMAR A LA API
+  
+  const [starWarsData, setStarWarsData] = useState({});
 
-  </>;
+  useEffect(() => {
+    // Dentro de useEffect llamamos a la API
+    callToApi().then((response) => {
+      // Cuando la API responde guardamos los datos en el estado para que se vuelva a renderizar el componente
+      setStarWarsData(response);
+    });
+    // Aquí ponemos un array vacío porque solo queremos que se llame a la API la primera vez
+  }, []);
+
+  return <div className="App">{/* Aquí va el HTML */}</div>;
 }
 
 export default App;
