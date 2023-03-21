@@ -1,1 +1,12 @@
-/* Aquí van tus estilos */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(151, 149, 149);
+
+    &__logo {
+        width: 350px;
+    }
+}
