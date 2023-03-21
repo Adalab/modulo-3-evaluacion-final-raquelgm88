@@ -7,7 +7,8 @@ import Header from './Header';
 function App() {
 
   const [data, setData] = useState([]);
-  const [house, setHouse] = useState('');
+  const [search, SetSearch] = useState('');
+  const [house, setHouse] = useState('gryffindor');
   
 
   useEffect(() => {
@@ -17,7 +18,9 @@ function App() {
   }, []);
 
   const renderList = () => {
-    return data.map ((eachCharacter, index) => {
+    return data.filter((eachCharacter) => {
+      return eachCharacter.name.toLowerCase().includes(search.toLowerCase());
+    }).map ((eachCharacter, index) => {
       return <li key={index} id={eachCharacter.id} className="li">
         <img src={eachCharacter.image} alt="" />
         <div>{eachCharacter.name}</div>
@@ -25,6 +28,10 @@ function App() {
       </li>
     })
   };
+
+  const handleFilter = (event) => {
+    SetSearch(event.target.value);
+  }
 
   const handleHouse = (event) => {
     setHouse(event.target.value);
@@ -35,7 +42,7 @@ function App() {
     <main>
       <form>
         <label htmlFor="search">Busca por personaje: </label>
-        <input type="search" name="search" autoComplete='off' />
+        <input type="search" name="search" autoComplete='off' onInput={handleFilter} value={search}/>
         <label htmlFor="house">Selecciona la casa: </label>
         <select name="house" id="house" onChange={handleHouse}>
           <option value="gryffindor">Gryffindor</option>
