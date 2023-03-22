@@ -13,10 +13,10 @@ function App() {
   
 
   useEffect(() => {
-    callToApi().then((response) => {
+    callToApi(house).then((response) => {
       setData(response);
     });
-  }, []);
+  }, [house]);
 
   const renderList = () => {
     return data.filter((eachCharacter) => {
@@ -35,6 +35,7 @@ function App() {
   };
 
   const handleFilter = (event) => {
+    event.preventDefault();
     SetSearch(event.target.value);
   }
 
@@ -45,11 +46,11 @@ function App() {
   return <>
     <Header/>
     <main>
-      <form>
-        <label htmlFor="search">Busca por personaje: </label>
-        <input type="search" name="search" autoComplete='off' onInput={handleFilter} value={search}/>
-        <label htmlFor="house">Selecciona la casa: </label>
-        <select name="house" id="house" onChange={handleHouse}>
+      <form className='form'>
+        <label className="form__label" htmlFor="search">Busca por personaje: </label>
+        <input className='form__input' type="search" name="search" autoComplete='off' onInput={handleFilter} value={search}/>
+        <label className="form__label" htmlFor="house">Selecciona la casa: </label>
+        <select className='form__select' name="house" id="house" onChange={handleHouse}>
           <option value="gryffindor">Gryffindor</option>
           <option value="ravenclaw">Ravenclaw</option>
           <option value="hufflepuff">Hufflepuff</option>
