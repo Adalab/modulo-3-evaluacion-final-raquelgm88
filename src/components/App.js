@@ -4,6 +4,7 @@ import {Link, Route, Routes} from 'react-router-dom';
 import '../styles/App.scss';
 import Header from './Header';
 import avatar from '../images/avatar.jpg';
+import Filters from './Filters';
 
 function App() {
 
@@ -46,17 +47,7 @@ function App() {
   return <>
     <Header/>
     <main>
-      <form className='form'>
-        <label className="form__label" htmlFor="search">Busca por personaje: </label>
-        <input className='form__input' type="search" name="search" autoComplete='off' onInput={handleFilter} value={search}/>
-        <label className="form__label" htmlFor="house">Selecciona la casa: </label>
-        <select className='form__select' name="house" id="house" onChange={handleHouse}>
-          <option value="gryffindor">Gryffindor</option>
-          <option value="ravenclaw">Ravenclaw</option>
-          <option value="hufflepuff">Hufflepuff</option>
-          <option value="slytherin">Slytherin</option>
-        </select>
-      </form>
+      <Filters handleFilter={handleFilter} search={search} handleHouse={handleHouse}/>
       <ul className='ul'>{renderList()}</ul>
     </main>
 
