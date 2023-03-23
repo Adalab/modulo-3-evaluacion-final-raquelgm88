@@ -2,38 +2,56 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
     width: 100%;
     height: 150px;
-    background-image: url(https://images.freeimages.com/images/large-previews/29b/dark-clouds-2-1152417.jpg);
-    background-position: center;
+
+    //background-image: url(https://images.freeimages.com/images/large-previews/29b/dark-clouds-2-1152417.jpg);
+    //background-position: center;
     
 
     &__logo {
         width: 350px;
     }
 }
+.video {
+position: absolute;
+position: fixed;
+bottom: 0px;
+right: 0px;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -1000;
+overflow: hidden;
+}
 
 .form {
+    position: fixed;
     display: flex;
+    top: 0;
     flex-direction: row;
     justify-content: center;
-   // align-items: center;
-    margin: 30px 0 0 30px;
+    //align-items: center;
+    margin-top: 150px;
 
     &__label {
         font-family: 'Benne', sans-serif;
-        font-size: 30px;
+        font-size: 25px;
     }
 
     &__input {
         width: 250px;
-        height: 30px;
+        height: 25px;
         margin-right: 30px;
     }
 
     &__select {
         width: 200px;
-        height: 30px;
+        height: 25px;
         font-family: 'Benne', sans-serif;
         font-size: 20px;
     }
@@ -43,7 +61,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
-    margin-top: 30px;
+    margin-top: 300px;
     row-gap: 30px;
    
 }

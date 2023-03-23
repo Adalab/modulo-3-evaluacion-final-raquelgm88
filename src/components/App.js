@@ -7,6 +7,7 @@ import Header from './Header';
 import Filters from './Filters';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
+import video from '../images/Flight_Through_Clouds_rotating_2x_forward.mp4'
 
 
 
@@ -58,6 +59,9 @@ function App() {
     <>
       <Header/>
       <main>
+        <video className="video" autoplay="true" loop="true" muted="true">
+          <source src={video}/>
+        </video>
         <Routes>
           <Route path="/" element={
             <>
