@@ -19,10 +19,6 @@ const CharacterList = ({data, search, message, gender}) => {
         return <CharacterCard key={eachCharacter.id} eachCharacter={eachCharacter}/>
       });
 
-    // const lifting = () => {
-    //   data = dataHtml;
-    // }
-
     return (
       <>
         {message}

@@ -7,7 +7,7 @@ import Header from './Header';
 import Filters from './Filters';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
-import video from '../images/Flight_Through_Clouds_rotating_2x_forward.mp4'
+import video from '../video/Flight_Through_Clouds_rotating_2x_forward.mp4'
 
 
 
@@ -55,7 +55,7 @@ function App() {
   const notFound = () => {
     if(filterName.length === 0) {
       setMessage(
-        <div>
+        <div className='divError'>
           <p>No hay ningún personaje que coincida con la palabra {search}</p>
         </div>
       )
@@ -75,7 +75,7 @@ function App() {
         <source src={video}/>
       </video>
       <Header/>
-      <main>
+      <main className="main">
         <Routes>
           <Route path="/" element={
             <>
