@@ -71,11 +71,11 @@ function App() {
 
   return (
     <>
+      <video className="video" autoPlay loop muted>
+        <source src={video}/>
+      </video>
       <Header/>
       <main>
-        <video className="video" autoPlay loop muted>
-          <source src={video}/>
-        </video>
         <Routes>
           <Route path="/" element={
             <>
