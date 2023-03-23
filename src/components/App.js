@@ -1,57 +1,93 @@
 import { useEffect, useState } from 'react';
 import callToApi from '../services/api';
-import ls from '../services/localStorage';
+import {matchPath, Route, Routes, useLocation} from 'react-router-dom';
 import '../styles/App.scss';
+import Header from './Header';
+
+import Filters from './Filters';
+import CharacterList from './CharacterList';
+import CharacterDetail from './CharacterDetail';
+import video from '../video/Flight_Through_Clouds_rotating_2x_forward.mp4'
+
+
 
 function App() {
 
-  //LOCALSTORAGE
+  const [data, setData] = useState([]);
+  const [search, setSearch] = useState('');
+  const [house, setHouse] = useState('gryffindor');
+  const [gender, setGender] = useState('todos')
+  const [message, setMessage] = useState('');
   
-  // Estados
-
-  // En vez de leer la propiedad name leemos la propiedad data y su valor por defecto es un objeto vacío: ls.get('data', {})
-  // Del objeto (vacío o relleno que nos devuelve ls.get) obtenemos la propiedad name: ls.get('data', {}).name
-  // Si la propiedad name existe la usamos, si no, usamos un string vacío: ls.get('data', {}).name || ''
-  const [name, setName] = useState(ls.get('data', {}).name || '');
-  // Lo mismo para el email
-  const [email, setEmail] = useState(ls.get('data', {}).email || '');
-
-  // useEffect
-
-  // Usamos useEffect para guardar los datos en el local storage
-  useEffect(() => {
-    // En vez de guardar el nombre por un lado y el email por otro
-    // Guardamos en el local storage un objeto data con las propiedad name y email: { name: 'loquesea', email: 'loquefuere' }
-    ls.set('data', {
-      name: name,
-      email: email,
-    });
-  }, [name, email]);
-
-  // Eventos
-
-  const handleName = (ev) => {
-    setName(ev.target.value);
-  };
-
-  const handleEmail = (ev) => {
-    setEmail(ev.target.value);
-  };
-
-  //LLAMAR A LA API
-  
-  const [starWarsData, setStarWarsData] = useState({});
 
   useEffect(() => {
-    // Dentro de useEffect llamamos a la API
-    callToApi().then((response) => {
-      // Cuando la API responde guardamos los datos en el estado para que se vuelva a renderizar el componente
-      setStarWarsData(response);
+    callToApi(house).then((response) => {
+      setData(response);
     });
-    // Aquí ponemos un array vacío porque solo queremos que se llame a la API la primera vez
-  }, []);
+  }, [house]);
 
-  return <div className="App">{/* Aquí va el HTML */}</div>;
-}
+  const filterName = data.filter((eachCharacter) => {
+    return eachCharacter.name.toLowerCase().includes(search.toLowerCase());
+  });
+
+  const handleGender = (event) => {
+    setGender(event.target.value);
+  };
+
+  const handleFilter = (event) => {
+    event.preventDefault();
+    setSearch(event.target.value);
+    notFound();
+  };
+
+  const handleHouse = (event) => {
+    setHouse(event.target.value);
+  };
+
+  const reset = (event) => {
+    event.preventDefault();
+    setSearch('');
+    setMessage('');
+    setHouse('gryffindor');
+    setGender('todos');
+  }
+
+  const notFound = () => {
+    if(filterName.length === 0) {
+      setMessage(
+        <div className='divError'>
+          <p>No hay ningún personaje que coincida con la palabra {search}</p>
+        </div>
+      )
+    }else if(filterName.length !== 0){
+      setMessage('');
+    }
+  }
+
+  const {pathname} = useLocation();
+  const dataUrl = matchPath('/character/:id', pathname);
+  const characterId = dataUrl !== null ? dataUrl.params.id : null;
+  const characterFind = filterName.find((eachCharacter) => eachCharacter.id === characterId);
+
+  return (
+    <>
+      <video className="video" autoPlay loop muted>
+        <source src={video}/>
+      </video>
+      <Header/>
+      <main className="main">
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Filters handleFilter={handleFilter} search={search} handleHouse={handleHouse} handleGender={handleGender} reset={reset} house={house} gender={gender}/>
+              <CharacterList data={data} search={search} message={message} gender={gender}/>
+            </>
+          }>
+          </Route>
+          <Route path="/character/:id" element={<CharacterDetail characterFind={characterFind}/>}/>
+        </Routes>
+      </main>
+    </>);
+};
 
 export default App;

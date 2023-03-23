@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+![Adalab](https://beta.adalab.es/resources/images/adalab-logo-155x61-bg-white.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Buscador de personajes del universo Harry Potter
 
-## Available Scripts
+¡Hola! esta aplicación web es el resultado del ejercicio de evaluación final del módulo tres del **bootcamp de Programación Web** de **Adalab**, de la promoción **Salas**.
 
-In the project directory, you can run:
+## Cómo funciona la aplicación
 
-### `npm start`
+### Estructura
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Al entrar en la aplicación tenemos un header con el logo de Harry Potter.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Debajo de él hay un formulario para buscar a los personajes. Tiene cuatro componentes:
 
-### `npm test`
+- Un filtro para buscar a un personaje por su nombre.
+- Un filtro tipo select para buscar a los personajes según a la casa de Hogwarts a la que pertenezcan.
+- Otro filtro de tipo select para buscar por género: masculino, femenino o todos los personajes.
+- Un botón de reset que restablece la búsqueda y pone la aplicación con sus valores iniciales.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Situado bajo el formulario, está el listado de los personajes.
 
-### `npm run build`
+El fondo de toda la página es un vídeo puesto como fondo, que se reproduce en bucle automáticamente.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+La estructura de la aplicación está dividida en un componente App.js principal, y cinco componentes hijas.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Búsqueda
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+En la barra de búsqueda por personaje podemos escribir el nombre de un personaje o parte de él. La búsqueda es aútomática, se realiza el filtado según vamos escribiendo. De esta manera se muestra el listado de todos los personajes que cumplan los requisitos de la búsqueda. La información que se muestra de cada personaje es su foto, nombre, género y especie.
 
-### `npm run eject`
+Podemos aplicar el filtro por casa y/o por género. Se puede buscar utilizando uno, dos o los tres criterios de búsqueda.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Si quieremos buscar otra personaje podemos clicar en el botón **"Reset"** para borrar el campo de búsqueda y poner las opciones seleccionadas por defecto, o directamente borrar de forma manual lo que tengamos escrito y realizar una nueva búsqueda.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Ver detalles de cada personaje
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Cuando queramos conocer más detalles de algún personaje, clicaremos sobre la tarjeta del mismo. De esta manera navegaremos a una url diferente asignada a cada personaje, y en ella veremos su foto, casa a la que pertenece, especie, género, estatus (vivo/a o muerto/a) y nombres alternativos en el caso de que los tenga.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Además, hay un botón de **"Volver"**, y clicando sobre él volveremos a la url de la página principal. Los valores establecidos en los filtros de búsqueda seguirán siendo los mismos que había antes de clicar sobre la ficha de personaje.
 
-## Learn More
+## Herramientas utilizadas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- HTML5
+- CSS3, SCSS
+- React JS
+- React Router
+- Prop-types
+- npm
+- NodeJS
+- Gulp
+- Git
+- APIs:
+  - https://hp-api.onrender.com/api/characters/house/gryffindor
+  - https://hp-api.onrender.com/api/characters/house/ravenclaw
+  - https://hp-api.onrender.com/api/characters/house/hufflepuff
+  - https://hp-api.onrender.com/api/characters/house/slytherin
