@@ -3,13 +3,10 @@ import callToApi from '../services/api';
 import {matchPath, Route, Routes, useLocation} from 'react-router-dom';
 import '../styles/App.scss';
 import Header from './Header';
-
 import Filters from './Filters';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import video from '../video/Flight_Through_Clouds_rotating_2x_forward.mp4'
-
-
 
 function App() {
 
@@ -19,7 +16,6 @@ function App() {
   const [gender, setGender] = useState('todos')
   const [message, setMessage] = useState('');
   
-
   useEffect(() => {
     callToApi(house).then((response) => {
       setData(response);

@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+
 const CharacterCard = ({eachCharacter, index}) => {
     return (
   <li key={index} id={eachCharacter.id} className="li">

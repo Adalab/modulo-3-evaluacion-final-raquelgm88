@@ -33,14 +33,16 @@ const CharacterDetail = ({characterFind}) => {
             <Link to={"/"}>
                 <input className="return" type="button" value="Volver"/>
             </Link>
-            <article className="article">
-                <img src={characterFind.image} alt="" />
-                <h3 className="name">{characterFind.name}</h3>
-                <p className="fact">Casa: {hogwarts()}</p>
-                <p className="fact">Especie: {characterFind.species}</p>
-                <p className="fact">Género: {characterFind.gender}</p>
-                <p className="fact">Estatus: {status()}</p>
-                <p className="fact">Nombres alternativos: {characterFind.alternate_names}</p>
+            <article className="detail__article">
+                <img className="detail__article_img" src={characterFind.image} alt={characterFind.name} />
+                <div className="detail__article_div">
+                    <h3 className="detail__article_div-name">{characterFind.name}</h3>
+                    <p className="detail__article_div-fact">Casa: {hogwarts()}</p>
+                    <p className="detail__article_div-fact">Especie: {characterFind.species}</p>
+                    <p className="detail__article_div-fact">Género: {characterFind.gender}</p>
+                    <p className="detail__article_div-fact">Estatus: {status()}</p>
+                    <p className="detail__article_div-fact">Nombres alternativos: {characterFind.alternate_names}</p>
+                </div>
             </article>
         </div>
     );

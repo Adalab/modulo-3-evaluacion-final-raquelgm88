@@ -2,7 +2,8 @@ import CharacterCard from "./CharacterCard";
 import avatar from '../images/avatar.jpg';
 
 const CharacterList = ({data, search, message, gender}) => {
-    let dataHtml = data.filter((eachCharacter) => {
+    
+  let dataHtml = data.filter((eachCharacter) => {
       const selectedGender= gender === "todos" || gender === eachCharacter.gender;
       return selectedGender && eachCharacter.name.toLowerCase().includes(search.toLowerCase());
     }).sort((a, b) => {

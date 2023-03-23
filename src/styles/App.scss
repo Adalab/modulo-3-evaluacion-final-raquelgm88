@@ -11,23 +11,11 @@
     overflow: hidden;
     }
 
- 
-
 .header {
     display: flex;
     justify-content: center;
     width: 100%;
     
-    @media all and (min-width: 768px) {
-
-    }
-
-    @media all and (min-width: 1200px) {
-       
-   
-    }
-
-
     &__logo {
         width: 250px;
 
@@ -37,10 +25,7 @@
 
         @media all and (min-width: 1200px) {
             width: 400px;
-         
         }
-
-
     }
 }
 
@@ -49,10 +34,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @media all and (min-width: 768px) {
-       
-    }
-
+   
     @media all and (min-width: 1200px) {
        display: flex;
        flex-direction: column;
@@ -65,19 +47,12 @@
         flex-direction: column;
         margin-left: 10px;
     
-
         @media all and (min-width: 768px) {
-            display: flex;
-            flex-direction: column;
             justify-content: center;
-            
-       
-        
         }
 
         @media all and (min-width: 1200px) {
             flex-direction: row;
-            align-content: space-between;
             margin-left: 15px;
         }
     
@@ -89,24 +64,16 @@
             color: white;
             width: 160px;
             height: 20px;
-            
-
-            @media all and (min-width: 768px) {
-                
-            }
     
             @media all and (min-width: 1200px) {
-               
+               margin-left: 20px;
             }
         }
     
         &_input {
             width: 300px;
             height: 20px;
-            @media all and (min-width: 768px) {
-                
-            }
-    
+
             @media all and (min-width: 1200px) {
                 width: 250px;
                 height: 20px;
@@ -120,16 +87,9 @@
             font-family: 'Benne', sans-serif;
             font-size: 20px;
             padding-top: 2px;
-
-            @media all and (min-width: 768px) {
-                
-            }
     
             @media all and (min-width: 1200px) {
                 width: 200px;
-                height: 25px;
-                font-family: 'Benne', sans-serif;
-                font-size: 20px;
             }
         }
 
@@ -160,13 +120,12 @@
         flex-direction: column;
         margin-top: 20px;
         padding: 0;
-        //justify-content: center;
         
-
         @media all and (min-width: 768px) {
             display: grid;
             grid-template-columns: 1fr 1fr;
             justify-items: center;
+            column-gap: 90px;
         }
 
         @media all and (min-width: 1200px) {
@@ -174,9 +133,8 @@
             grid-template-columns: 1fr 1fr 1fr 1fr;
             justify-items: center;
             margin-top: 30px;
-            row-gap: 30px;
+            gap: 30px;
         }
-       
     }
     
     .li {
@@ -190,31 +148,13 @@
         text-decoration: none;
         border: solid 2px black;
 
-        @media all and (min-width: 768px) {
-                
-        }
-
         @media all and (min-width: 1200px) {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background-color: #F5B041;
-            width: 220px;
+            align-items: center;
         }
         
-       
-    
         &__img {
             width: 220px;
             height: 300px;
-            @media all and (min-width: 768px) {
-                
-            }
-    
-            @media all and (min-width: 1200px) {
-               
-            }
-        
         }
     
         &__name {
@@ -223,79 +163,23 @@
             font-size: 22px;
             font-weight: bold;
             text-align: center;
-           
-            
-            
-
-            @media all and (min-width: 768px) {
-                
-            }
-    
-            @media all and (min-width: 1200px) {
-               
-            }
+            color: black;
         }
         
         &__gender {
             margin: 5px 0 0 10px ;
             font-family: 'Benne', sans-serif;
             font-size: 18px;
-
-            @media all and (min-width: 768px) {
-                
-            }
-    
-            @media all and (min-width: 1200px) {
-                margin: 5px 0 0 10px ;
-                font-family: 'Benne', sans-serif;
-                font-size: 18px;
-            }
+            color: black;
         }
 
         &__specie {
             margin: 5px 0 0 10px ;
             font-family: 'Benne', sans-serif;
             font-size: 18px;
-
-            @media all and (min-width: 768px) {
-                
-            }
-    
-            @media all and (min-width: 1200px) {
-                margin: 5px 0 0 10px ;
-                font-family: 'Benne', sans-serif;
-                font-size: 18px;
-            }
+            color: black;
         }
     }
- 
-.return
-
-.alive {
-    width: px;
-}
-
-.dead {
-    width: 10px;
-}
-
-.hidden {
-    display: none;
-}
-
-.hogwarts {
-    width: 30px;
-}
-
-.detail {
-    margin-top: 10px;
-    display: flex;
-    
-}
-
-.link {
-    text-decoration: none;
-}
 
 .divError {
     display: flex;
@@ -316,26 +200,80 @@
     @media all and (min-width: 1200px) {
        width: 600px;
        font-size: 50px;
-      
-
     }
 }
 
-.article {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    background-color: #A93226;
-    width: 280px;
-    height: 800px;
-    margin-bottom: 20px;
+.link {
     text-decoration: none;
-    border: solid 2px black;
 }
 
-.fact {
-    font-family: 'Benne', sans-serif;
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 1px;
+.detail {
+    margin-top: 10px;
+    display: flex;
+    
+    &__article {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        background-color: #A93226;
+        width: 280px;
+        height: 700px;
+        margin-bottom: 20px;
+        text-decoration: none;
+        border: solid 2px black;
+
+        @media all and (min-width: 1200px) {
+            flex-direction: row;
+            width: 550px;
+            height: 350px;
+        }
+        
+        &_img {
+            @media all and (min-width: 1200px) {
+                height: 350px;
+            }
+        }
+
+        &_div {
+
+            &-name {
+                margin: 10px 0 0 10px ;
+                font-family: 'Benne', sans-serif;
+                font-size: 30px;
+                font-weight: bold;
+                text-align: center;
+                color: black;
+            }
+
+            &-fact {
+                margin: 10px 0 0 15px ;
+                font-family: 'Benne', sans-serif;
+                font-size: 25px;
+                color: black;
+            }
+        }
+    }
+}
+
+.alive {
+    width: 50px;
+}
+
+.dead {
+    width: 30px;
+}
+
+.hogwarts {
+    width: 30px;
+}
+
+.return {
+    width: 50px;
+           margin-right: 10px;
+           align-self: flex-end;
+           font-family: 'Benne', sans-serif;
+           font-size: 20px;
+           background-color: #A93226;
+           padding-top: 5px;
+           width: 70px;
 }
