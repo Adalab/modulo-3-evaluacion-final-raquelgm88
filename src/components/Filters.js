@@ -1,7 +1,7 @@
 const Filters = ({handleFilter, search, handleHouse}) => {
 
     return (
-      <form className='form'>
+      <form className='form' >
         <label className="form__label" htmlFor="search">Busca por personaje: </label>
         <input className='form__input' type="text" name="search" autoComplete='off' onInput={handleFilter} value={search}/>
         <label className="form__label" htmlFor="house">Selecciona la casa: </label>

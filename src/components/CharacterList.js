@@ -1,7 +1,9 @@
 import CharacterCard from "./CharacterCard";
 import avatar from '../images/avatar.jpg';
 
-const CharacterList = ({data, search}) => {
+const CharacterList = ({data, search, message}) => {
+
+  
 
     let dataHtml = data.filter((eachCharacter) => {
       return eachCharacter.name.toLowerCase().includes(search.toLowerCase());
@@ -13,9 +15,12 @@ const CharacterList = ({data, search}) => {
       })
 
     return (
+      <>
+        {message}
         <ul className='ul'>
             {dataHtml}
         </ul>
+      </>
     );
 };
 export default CharacterList;

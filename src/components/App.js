@@ -15,6 +15,7 @@ function App() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
   const [house, setHouse] = useState('gryffindor');
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     callToApi(house).then((response) => {
@@ -29,10 +30,23 @@ function App() {
   const handleFilter = (event) => {
     event.preventDefault();
     setSearch(event.target.value);
-  }
+    notFound();
+  };
 
   const handleHouse = (event) => {
     setHouse(event.target.value);
+  }
+
+  const notFound = () => {
+    if(filterName.length === 0) {
+      setMessage(
+        <div>
+          <p>No hay ningún personaje que coincida con la palabra {search}</p>
+        </div>
+      )
+    }else if(filterName.length !== 0){
+      setMessage('');
+    }
   }
 
   const {pathname} = useLocation();
@@ -48,7 +62,7 @@ function App() {
           <Route path="/" element={
             <>
               <Filters handleFilter={handleFilter} search={search} handleHouse={handleHouse}/>
-              <CharacterList data={data} search={search}/>
+              <CharacterList data={data} search={search} message={message}/>
             </>
           }>
           </Route>
