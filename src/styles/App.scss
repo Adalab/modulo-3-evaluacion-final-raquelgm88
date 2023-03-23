@@ -36,7 +36,7 @@ overflow: hidden;
     flex-direction: row;
     justify-content: center;
     //align-items: center;
-    margin-top: 150px;
+    margin-top: 200px;
 
     &__label {
         font-family: 'Benne', sans-serif;
@@ -105,4 +105,12 @@ overflow: hidden;
 
 .hidden {
     display: none;
+}
+
+.hogwarts {
+    width: 30px;
+}
+
+.detail {
+    margin-top: 200px;
 }

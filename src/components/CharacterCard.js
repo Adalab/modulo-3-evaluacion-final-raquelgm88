@@ -5,6 +5,7 @@ const CharacterCard = ({eachCharacter, index}) => {
     <Link to={`/character/${eachCharacter.id}`}>
         <img src={eachCharacter.image} alt="personaje" className='li__img'/>
         <h3 className='li__name'>{eachCharacter.name}</h3>
+        <p className='li__gender'>{eachCharacter.gender}</p>
         <p className='li__specie'>{eachCharacter.species}</p>
       </Link>
     </li>

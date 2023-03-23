@@ -16,7 +16,9 @@ function App() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
   const [house, setHouse] = useState('gryffindor');
+  const [gender, setGender] = useState('todos')
   const [message, setMessage] = useState('');
+  
 
   useEffect(() => {
     callToApi(house).then((response) => {
@@ -26,7 +28,15 @@ function App() {
 
   const filterName = data.filter((eachCharacter) => {
     return eachCharacter.name.toLowerCase().includes(search.toLowerCase());
-  })
+  });
+
+  // const filterGender= data.filter((eachCharacter) => {
+  // if( gender === "todos") {
+  //   return true;
+  // }else {
+  //   return gender === eachCharacter.gender;
+  // }
+  //   });
 
   const handleFilter = (event) => {
     event.preventDefault();
@@ -36,7 +46,11 @@ function App() {
 
   const handleHouse = (event) => {
     setHouse(event.target.value);
-  }
+  };
+
+  const handleGender = (event) => {
+  //   setGender(event.target.value);
+   };
 
   const notFound = () => {
     if(filterName.length === 0) {
@@ -65,7 +79,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
-              <Filters handleFilter={handleFilter} search={search} handleHouse={handleHouse}/>
+              <Filters handleFilter={handleFilter} search={search} handleHouse={handleHouse} handleGender={handleGender}/>
               <CharacterList data={data} search={search} message={message}/>
             </>
           }>

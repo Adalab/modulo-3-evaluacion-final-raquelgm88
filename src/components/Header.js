@@ -5,7 +5,6 @@ import logo from '../images/logo.png';
       return (
       <header className='header'>
       <img src={logo} alt="Logo Harry Potter" className='header__logo'/>
-      
     </header>
     );
   };
