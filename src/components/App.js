@@ -30,13 +30,10 @@ function App() {
     return eachCharacter.name.toLowerCase().includes(search.toLowerCase());
   });
 
-  // const filterGender= data.filter((eachCharacter) => {
-  // if( gender === "todos") {
-  //   return true;
-  // }else {
-  //   return gender === eachCharacter.gender;
-  // }
-  //   });
+  const handleGender = (event) => {
+    setGender(event.target.value);
+    
+  };
 
   const handleFilter = (event) => {
     event.preventDefault();
@@ -47,10 +44,6 @@ function App() {
   const handleHouse = (event) => {
     setHouse(event.target.value);
   };
-
-  const handleGender = (event) => {
-  //   setGender(event.target.value);
-   };
 
   const notFound = () => {
     if(filterName.length === 0) {
@@ -73,14 +66,14 @@ function App() {
     <>
       <Header/>
       <main>
-        <video className="video" autoplay="true" loop="true" muted="true">
+        <video className="video" autoPlay loop muted>
           <source src={video}/>
         </video>
         <Routes>
           <Route path="/" element={
             <>
               <Filters handleFilter={handleFilter} search={search} handleHouse={handleHouse} handleGender={handleGender}/>
-              <CharacterList data={data} search={search} message={message}/>
+              <CharacterList data={data} search={search} message={message} gender={gender}/>
             </>
           }>
           </Route>
