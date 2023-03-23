@@ -32,7 +32,6 @@ function App() {
 
   const handleGender = (event) => {
     setGender(event.target.value);
-    
   };
 
   const handleFilter = (event) => {
@@ -44,6 +43,14 @@ function App() {
   const handleHouse = (event) => {
     setHouse(event.target.value);
   };
+
+  const reset = (event) => {
+    event.preventDefault();
+    setSearch('');
+    setMessage('');
+    setHouse('gryffindor');
+    setGender('todos');
+  }
 
   const notFound = () => {
     if(filterName.length === 0) {
@@ -72,7 +79,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
-              <Filters handleFilter={handleFilter} search={search} handleHouse={handleHouse} handleGender={handleGender}/>
+              <Filters handleFilter={handleFilter} search={search} handleHouse={handleHouse} handleGender={handleGender} reset={reset} house={house} gender={gender}/>
               <CharacterList data={data} search={search} message={message} gender={gender}/>
             </>
           }>

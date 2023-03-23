@@ -17,7 +17,11 @@ const CharacterList = ({data, search, message, gender}) => {
           eachCharacter.image = avatar;
         };
         return <CharacterCard key={eachCharacter.id} eachCharacter={eachCharacter}/>
-      })
+      });
+
+    // const lifting = () => {
+    //   data = dataHtml;
+    // }
 
     return (
       <>
