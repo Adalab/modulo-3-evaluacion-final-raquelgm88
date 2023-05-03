@@ -1,4 +1,4 @@
-![Adalab](https://beta.adalab.es/resources/images/adalab-logo-155x61-bg-white.png)
+![Proyecto Harry Potter](https://w7.pngwing.com/pngs/311/217/png-transparent-harry-potter-and-the-goblet-of-fire-draco-malfoy-the-wizarding-world-of-harry-potter-hermione-granger-harry-potter-angle-text-logo.png)
 
 # Buscador de personajes del universo Harry Potter
 
@@ -53,3 +53,39 @@ Además, hay un botón de **"Volver"**, y clicando sobre él volveremos a la url
   - https://hp-api.onrender.com/api/characters/house/ravenclaw
   - https://hp-api.onrender.com/api/characters/house/hufflepuff
   - https://hp-api.onrender.com/api/characters/house/slytherin
+
+## Cómo arrancar el proyecto
+
+Necesitas tener instalado [Node JS] (https://nodejs.org/en) para poder arrancar este proyecto.
+
+1. Instala las dependecias locales ejecutando en la terminal el comando:
+
+```
+npm install
+```
+
+2. Instala el paquete del enrutador React Router DOM:
+
+```
+npm install react-router-dom
+```
+
+3. Instala la librería para validar las props:
+
+```
+npm install prop-types
+```
+
+4. Instala por último el paquete para SASS:
+
+```
+npm install node-sass
+```
+
+5. Arranca el proyecto ejecutando a continuación en la terminal:
+
+```
+npm start
+```
+
+Se abrirá [http://localhost:3000 ] (http://localhost:3000 )para ver el proyecto en el navegador en modo desarrollo.
