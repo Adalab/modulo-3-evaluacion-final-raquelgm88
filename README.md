@@ -1,4 +1,4 @@
-![Proyecto Harry Potter]([https://w7.pngwing.com/pngs/311/217/png-transparent-harry-potter-and-the-goblet-of-fire-draco-malfoy-the-wizarding-world-of-harry-potter-hermione-granger-harry-potter-angle-text-logo.png](https://i.fonts2u.com/ha/harry-potter_4.png))
+![Proyecto Harry Potter](https://raw.githubusercontent.com/raquelgm88/modulo-3-evaluacion-final-raquelgm88/main/src/images/logo.png)
 
 # Buscador de personajes del universo Harry Potter
 
@@ -56,7 +56,7 @@ Además, hay un botón de **"Volver"**, y clicando sobre él volveremos a la url
 
 ## Cómo arrancar el proyecto
 
-Necesitas tener instalado [Node JS] (https://nodejs.org/en) para poder arrancar este proyecto.
+Necesitas tener instalado [Node JS](https://nodejs.org/en) para poder arrancar este proyecto.
 
 1. Instala las dependecias locales ejecutando en la terminal el comando:
 
@@ -88,4 +88,4 @@ npm install node-sass
 npm start
 ```
 
-Se abrirá [http://localhost:3000 ] (http://localhost:3000 )para ver el proyecto en el navegador en modo desarrollo.
+Se abrirá [http://localhost:3000 ](http://localhost:3000)para ver el proyecto en el navegador en modo desarrollo.
