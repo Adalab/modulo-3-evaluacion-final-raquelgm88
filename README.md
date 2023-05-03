@@ -1,4 +1,4 @@
-![Proyecto Harry Potter](https://w7.pngwing.com/pngs/311/217/png-transparent-harry-potter-and-the-goblet-of-fire-draco-malfoy-the-wizarding-world-of-harry-potter-hermione-granger-harry-potter-angle-text-logo.png)
+![Proyecto Harry Potter]([https://w7.pngwing.com/pngs/311/217/png-transparent-harry-potter-and-the-goblet-of-fire-draco-malfoy-the-wizarding-world-of-harry-potter-hermione-granger-harry-potter-angle-text-logo.png](https://i.fonts2u.com/ha/harry-potter_4.png))
 
 # Buscador de personajes del universo Harry Potter
 
